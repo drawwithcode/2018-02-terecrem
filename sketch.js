@@ -2,10 +2,46 @@ function preload(){
   // put preload code here
 }
 
+
 function setup() {
-  // put setup code here
+  createCanvas(500, 500);
+  angleMode(DEGREES);
+  background(20);
+  frameRate(40);
+
 }
 
 function draw() {
-  // put drawing code here
+
+  //variabili
+  var angle = sin(frameCount) * 120;
+  var angle2 = sin(frameCount * 6) * 120;
+
+  //trasformazioni
+  translate(width / 2, height / 2);
+  rotate(frameCount);
+
+  //colore
+  stroke(lerpColor(color('#1433E2'), color('#fff'), frameCount / 180));
+
+
+  //colore2
+  fill(lerpColor(color('#1433E2'), color('#fff'), frameCount / 180));
+
+
+  //colore3
+  stroke(lerpColor(color('#fff'), color('#1433E2'), frameCount / 180));
+
+  //petali
+
+  line(0, 0, 0, angle2);
+  line(0, 0, 0, -angle2);
+
+
+  //stop
+  if (frameCount == 180) {
+    noLoop();
+  }
+
+
 }
